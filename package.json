@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.3.0",
+    "@astropub/md": "^1.0.0",
     "@eslint/js": "^9.30.0",
     "@iframe-resizer/parent": "^5.4.6",
     "@tailwindcss/typography": "^0.5.16",
@@ -20,9 +21,12 @@
     "astro": "^5.11.0",
     "eslint": "^9.30.0",
     "eslint-config-prettier": "^10.1.5",
+    "gray-matter": "^4.0.3",
+    "marked": "^16.0.0",
     "prettier": "^3.6.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "rehype-external-links": "^3.0.0",
     "tailwindcss": "^4.1.11"
   }
 }
