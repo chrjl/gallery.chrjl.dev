@@ -11,6 +11,7 @@
   "dependencies": {
     "@astrojs/react": "^4.3.0",
     "@eslint/js": "^9.30.0",
+    "@iframe-resizer/parent": "^5.4.6",
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.1.11",
     "@types/node": "^24.0.7",
