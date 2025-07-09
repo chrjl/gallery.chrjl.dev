@@ -1,0 +1,23 @@
+---
+import { Markdown } from '@astropub/md';
+import matter from 'gray-matter';
+
+import Footer from './Footer.astro';
+
+const { src } = Astro.props;
+
+const response = await fetch(src);
+const text = await response.text();
+const { data, content } = matter(text);
+
+const metadata: { links?: string[]; tags?: string[] } = {
+  links: data.links?.map((entry: { [key: string]: string }) => entry.URL),
+  tags: data.tags,
+};
+---
+
+<article>
+  <Markdown of={content} />
+</article>
+
+{metadata ? <Footer metadata={metadata} /> : null}
