@@ -2,12 +2,12 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Article from '../components/Article.astro';
 
-const env = 'prod';
+const env = import.meta.env.MODE;
 
 const title = 'N Queens Visualizer';
-const base = {
-  dev: 'https://chrjl.github.io/n-queens',
-  prod: 'http://localhost:5173/n-queens',
+const base: { [key: string]: string } = {
+  production: 'https://chrjl.github.io/n-queens',
+  development: 'http://localhost:5173/n-queens',
 };
 ---
 
