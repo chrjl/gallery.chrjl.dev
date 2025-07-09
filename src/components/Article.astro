@@ -6,9 +6,19 @@ import Footer from './Footer.astro';
 
 const { src } = Astro.props;
 
-const response = await fetch(src);
-const text = await response.text();
-const { data, content } = matter(text);
+let data: { links?: { [key: string]: string }[]; tags?: string[] } = {};
+let content: string;
+
+try {
+  const response = await fetch(src);
+  const text = await response.text();
+  const result = matter(text);
+
+  data = result.data;
+  content = result.content;
+} catch (err) {
+  content = 'Error fetching content';
+}
 
 const metadata: { links?: string[]; tags?: string[] } = {
   links: data.links?.map((entry: { [key: string]: string }) => entry.URL),

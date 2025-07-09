@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Article from '../components/Article.astro';
+
+const env = 'prod';
+
+const title = 'N Queens Visualizer';
+const base = {
+  dev: 'https://chrjl.github.io/n-queens',
+  prod: 'http://localhost:5173/n-queens',
+};
+---
+
+<BaseLayout title={title}>
+  <section class="self-center w-screen">
+    <iframe
+      id="app"
+      src={base[env] + '?theme=light'}
+      width="100%"
+      height="100vh"></iframe>
+
+    <script>
+      import iframeResize from '@iframe-resizer/parent';
+
+      const app = document.getElementById('app');
+
+      app?.addEventListener('load', () => {
+        iframeResize({ license: 'GPLv3' }, '#app');
+      });
+    </script>
+  </section>
+
+  <Article src={base[env] + '/about.md'} />
+</BaseLayout>
