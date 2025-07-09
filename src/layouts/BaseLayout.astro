@@ -1,0 +1,25 @@
+---
+import '../styles/global.css';
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="flex flex-col items-center">
+    <main class="prose flex flex-col items-stretch m-8 gap-y-8">
+      <header>
+        <h1 class="text-center">{title}</h1>
+      </header>
+
+      <slot />
+    </main>
+  </body>
+</html>
