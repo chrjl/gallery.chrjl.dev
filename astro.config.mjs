@@ -8,6 +8,7 @@ import externalLinks from 'rehype-external-links';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://gallery.chrjl.dev',
   integrations: [react(), markdownIntegration()],
   markdown: {
     rehypePlugins: [[externalLinks, { rel: ['noreferrer'], target: '_blank' }]],
